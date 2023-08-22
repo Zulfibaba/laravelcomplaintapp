@@ -12,4 +12,8 @@ class complaint extends Model
     {
         return $this->belongsTo(user::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

@@ -9,7 +9,14 @@ class HomeController extends Controller
 {
     public function show_complaints()
     {
-        $complaints = complaint::all();
+        $complaints = complaint::paginate(3);
         return view('home', ['complaints' => $complaints]);
+    }
+
+    public function show(complaint $complaint)
+    {
+        return view('post.show', [
+            'show' => $complaint
+        ]);
     }
 }

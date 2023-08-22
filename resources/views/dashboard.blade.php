@@ -55,7 +55,7 @@
                                                     <td class="px-6 py-4">
                                                         {{ $complaint->title }}
                                                     </td>
-                                                    <td class="px-6 py-4">
+                                                    <td class="px-6 py-04">
                                                         {{ $complaint->description }}
                                                     </td>
                                                     <td class="px-6 py-4">

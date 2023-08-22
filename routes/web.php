@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::get('/post/{complaint}', [HomeController::class, 'show']);
+Route::post('/post/{complaint}/comment',  [CommentController::class, 'store']);
+Route::delete('/post/{id}/delete', [CommentController::class, 'destroy'])->middleware('can:admin');
 
 require __DIR__ . '/auth.php';
