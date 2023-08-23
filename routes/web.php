@@ -19,7 +19,13 @@ use App\Http\Controllers\ShowController;
 |
 */
 
-Route::get('/', [HomeController::class, 'show_complaints'])->name('home');
+Route::get('/', function () {
+    return view('allcomplaint');
+});
+
+
+
+Route::get('/AllComplaint', [HomeController::class, 'show_complaints'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'show_complaints'])->name('dashboard');
@@ -28,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/complaints/edit/{id}', [ComplaintController::class, 'edit'])->name('edit_complaint');
     Route::put('/complaints/edit/{id}', [ComplaintController::class, 'update'])->name('update_complaint');
     Route::get('/complaints/delete/{id}', [ComplaintController::class, 'destroy'])->name('destroy_complaint');
+    // Route::get('/allcomplaint',[ComplaintController::class , 'show'])->name
 });
 
 Route::middleware('auth')->group(function () {

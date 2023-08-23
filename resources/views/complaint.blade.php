@@ -5,130 +5,60 @@
         </h2>
     </x-slot>
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
 
     <head>
-        <style>
-            * {
-                box-sizing: border-box;
-            }
-
-            input[type=text],
-            select,
-            textarea {
-                width: 100%;
-                padding: 12px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                resize: vertical;
-            }
-
-            label {
-                padding: 12px 12px 12px 0;
-                display: inline-block;
-            }
-
-            input[type=submit] {
-                background-color: #04AA6D;
-                color: white;
-                padding: 12px 20px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                float: left;
-            }
-
-            input[type=submit]:hover {
-                background-color: #225424;
-            }
-
-            .container {
-                border-radius: 5px;
-                background-color: #f2f2f2;
-                padding: 20px;
-            }
-
-            .col-25 {
-                float: left;
-                width: 12%;
-                margin-top: 6px;
-            }
-
-            .col-75 {
-                float: left;
-                width: 75%;
-                margin-top: 6px;
-            }
-
-            /* Clear floats after the columns */
-            .row::after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-            @media screen and (max-width: 600px) {
-
-                .col-25,
-                .col-75,
-                input[type=submit] {
-                    width: 100%;
-                    margin-top: 0;
-                }
-            }
-        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Complaint Form</title>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body>
-        <div class="container" style="background-color: #ccc">
-            <div>
-                <h1> <b>Complaint Form</b></h1>
+    <body class="bg-gray-900 text-white">
+
+        <div class="bg-gray-900 py-6">
+            <div class="container mx-auto text-center">
+                <h1 class="text-3xl font-semibold text-white">Complaint Form</h1>
             </div>
         </div>
 
-        <div class="container">
-            <form action="" method="POST">
-                @csrf
-                <div class="row">
-                    <div class="col-25">
-                        <label for="title">Title</label>
-                    </div>
-                    <div class="col-75">
+        <div class="container mx-auto bg-gray-900 px-4">
+            <div class="max-w-6xl mx-auto p-6 bg-gray-700 rounded-lg shadow-md">
+                <form action="" method="POST">
+                    @csrf
+                    <div class="mb-4">
+                        <label for="title" class="block mb-2 text-white">Title</label>
                         <input type="text" value="{{ old('title') }}" id="title" name="title"
-                            placeholder="Title of your complaint...">
-                    </div>
-                    <div class="mt-5">
+                            placeholder="Title of your complaint..."
+                            class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-600 rounded focus:outline-none focus:border-gray-400"
+                            required>
                         @error('title')
-                            <div class="bg-red-500 w-full text-white rounded">{{ $message }}</div>
+                            <div class="mt-2 text-red-500">{{ $message }}</div>
                         @enderror
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="description">Description</label>
+                    <div class="mb-4">
+                        <label for="description" class="block mb-2 text-white">Description</label>
+                        <textarea id="description" name="description" placeholder="Write something..."
+                            class="w-full px-4 py-2 bg-gray-800 border text-white border-gray-600 rounded focus:outline-none focus:border-gray-400"
+                            style="height:200px" required></textarea>
                     </div>
-                    <div class="col-75">
-                        <textarea id="description" name="description" placeholder="Write something..." style="height:200px"></textarea>
+                    <div class="text-center">
+                        <input type="submit" value="Submit"
+                            class="px-6 py-2 bg-green-500 text-white rounded cursor-pointer hover:bg-green-600">
                     </div>
+                </form>
+                <div class="mt-4">
+                        {{-- @if (session()->has('status'))
+                            <div class="bg-purple-500 text-green-200 font-bold py-2 px-4 rounded">
+                                {{ session('status') }}
+                            </div>
+                        @endif --}}
                 </div>
-                <br>
-                <div class="row">
-
-                    <input type="submit" value="Submit">
-
-                </div>
-            </form>
-            <div class="container">
-                @if (session()->has('status'))
-                    <div class="mt-10 shadow bg-purple-500 text-green font-bold py-2 px-4 rounded ">
-                        {{ session('status') }}
-                    </div>
-                @endif
             </div>
         </div>
 
     </body>
 
     </html>
+
 </x-app-layout>

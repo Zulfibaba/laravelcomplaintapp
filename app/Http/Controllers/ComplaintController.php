@@ -61,4 +61,7 @@ class ComplaintController extends Controller
         complaint::destroy($id);
         return redirect(route('dashboard'))->with('status', 'Your Complaint Have been Deleted Successfully !!');
     }
+
+
+    
 }

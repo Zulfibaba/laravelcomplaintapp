@@ -3,7 +3,7 @@
 </head>
 {{-- //post section --}}
 <div class="p-6 text-gray-900 dark:text-gray-100">
-    <a href="/" class="text-black">&#x2190;Back To Home</a>
+    <a href="/AllComplaint" class="text-black flex">&#x2190; Back To All Complaints</a>
     <div class="bg-gray-200 p-4 text-gray-900 mb-4 rounded-lg h-60">
         <h2 class="text-lg font-bold text-center">{{ $show->title }}</h2>
         <p class="text-gray-600 text-center pt-8">{{ $show->description }}</p>
@@ -30,7 +30,7 @@
                     Post comment
                 </button>
             </form>
-            
+
         @endauth
         @foreach ($show->comments as $shows)
             <article class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
