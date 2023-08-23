@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/post/{complaint}', [HomeController::class, 'show']);
+Route::get('/post/{complaint}', [HomeController::class, 'show'])->name("complaints.show");
 Route::post('/post/{complaint}/comment',  [CommentController::class, 'store']);
 Route::delete('/post/{id}/delete', [CommentController::class, 'destroy'])->middleware('can:admin');
 
