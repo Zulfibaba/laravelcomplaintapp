@@ -35,7 +35,7 @@
 
                 <div class="mt-8">
                     @foreach ($complaints as $complaint)
-                        <a href="post/{{ $complaint->id }}">
+                        <a href="{{ route('complaints.show', $complaint->id)}}"
                             <div class="bg-gray-200 p-4 text-gray-900 mb-4 rounded-lg h-60">
                                 <h2 class="text-lg font-bold text-center">{{ $complaint->title }}</h2>
                                 <p class="text-gray-600 text-center pt-8">{{ $complaint->description }}</p>

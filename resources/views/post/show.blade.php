@@ -26,7 +26,7 @@
                         placeholder="Write a comment..." required></textarea>
                 </div>
                 <button type="submit"
-                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white text-black bg-gray-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                     Post comment
                 </button>
             </form>
@@ -87,6 +87,10 @@
 
             </article>
         @endforeach
-        <p class="text-red-500">You must <a href="/" class="text-purple-700">Login </a> to Post a Comment</p>
+        @guest
+        <p class="text-red-500">You must <a href="{{ route('login') }}" class="text-purple-700">Login </a> to Post a Comment</p>                
+        @endguest
+    
+    
     </div>
 </section>
