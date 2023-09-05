@@ -50,12 +50,12 @@
                                                     </td>
                                                     <td class="px-6 py-4">
                                                         <a href="post/{{ $complaint->id }}">
-                                                        {{ $complaint->title }}
+                                                            {{ $complaint->title }}
                                                         </a>
                                                     </td>
                                                     <td class="px-6 py-04">
                                                         <a href="post/{{ $complaint->id }}">
-                                                        {{ $complaint->description }}
+                                                            {{ $complaint->description }}
                                                         </a>
                                                     </td>
                                                     @admin()
